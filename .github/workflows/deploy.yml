@@ -12,6 +12,11 @@ jobs:
       - name: Checkout del codigo
         uses: actions/checkout@v4
 
+      - name: Validar sitio estatico
+        run: |
+          test -f index.html
+          echo "index.html existe, validacion correcta"
+
       - name: Configurar credenciales de AWS
         uses: aws-actions/configure-aws-credentials@v4
         with:
